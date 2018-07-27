@@ -8,7 +8,7 @@ body{
   padding-bottom: 30%;
   float: left;
   margin: 1.66%;
-  border-radius: 1px;
+  border-radius: 10px;
 }
 
 .container{
@@ -16,6 +16,10 @@ body{
   margin: 0 auto;
 }
 h1{
+  color: #fff;
+  text-align: center;
+}
+h2{
   color: #fff;
   text-align: center;
 }
