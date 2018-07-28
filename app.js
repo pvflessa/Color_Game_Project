@@ -3,8 +3,9 @@
 LOOP THROUGH THEM
 AND THEN ASSIGN ONE COLOR FROM THE "COLORS" ARRAY TO EACH ONES BACKAGRAOUND */
 
+/* 00) GENARATE SIX RANDOM COLORS FILL THE colors ARRAY   */
 
-/* 1) SELECT A RANDOM COLOR */
+/* 1) SELECT A COLOR FROM THE ARRAY */
 
 
 /* 2) ΕΠΕΙΤΑ ΘΕΛΩ ΤΟ ΧΡΩΜΑ ΠΟΥ ΘΕΛΩ ΝΑ ΜΑΝΤΕΨΕΙ Ο ΧΡΗΣΤΗΣ ΝΑ ΕΜΦΑΝΙΖΕΤΑΙ ΜΕΣΑ ΣΤΟ h2 -> span class ="color-display" */
@@ -21,15 +22,34 @@ AND THEN ASSIGN ONE COLOR FROM THE "COLORS" ARRAY TO EACH ONES BACKAGRAOUND */
 
                     // SOLUTION :
 
+/* 00) = */
+var colors = genarateRandomColors(6);
 
-var colors = [
-  "rgb(255, 0, 0)",
-  "rgb(255, 255, 0)",
-  "rgb(0, 255, 0)",
-  "rgb(0, 255, 255)",
-  "rgb(0, 0, 255)",
-  "rgb(255, 0, 255)"
-];
+function genarateRandomColors(num){
+  // make an array
+  var arr = [];
+  // add num random colors to array
+    //repeat num times
+  for (var i = 0; i < num; i++) {
+    // get random colors and push into array
+    arr.push(randomColor())
+  }
+  // return the array
+  return arr;
+}
+
+function randomColor(){
+  //pick a "red" from 0-255
+  var red = Math.floor(Math.random()*256)
+  //pick a "green" from 0-255
+  var green = Math.floor(Math.random()*256)
+  //pick a "blue" from 0-255
+  var blue = Math.floor(Math.random()*256)
+
+  return "rgb(" + red + ", " + green + ", " + blue + ")";
+
+}
+
 
 /* 1)= */
 
@@ -74,6 +94,8 @@ for(var i = 0; i < squares.length; i++ ){
         messageDisplay.textContent = 'You Won'
         /* 5)= */
         changeColors(clickedColor)
+        selectTitle.style.backgroundColor = clickedColor
+
      }else{
 
        this.style.backgroundColor = '#232323' //του βάζω το ίδιο χρωμα με το body για να εξαφανιζεται
@@ -85,6 +107,8 @@ for(var i = 0; i < squares.length; i++ ){
 
 
 /* 5)= */
+var selectTitle = document.querySelector('.title')
+
 
 function changeColors(color){
   //loop through all SQUARES

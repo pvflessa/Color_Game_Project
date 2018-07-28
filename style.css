@@ -1,6 +1,9 @@
 body{
   background-color: #232323;
 }
+.title{
+  padding: 20px;
+}
 
 .square{
   width: 30%;
@@ -11,10 +14,13 @@ body{
   border-radius: 10px;
 }
 
+
 .container{
   max-width: 600px;
-  margin: 0 auto;
+  margin: 50px auto;
+
 }
+
 h1{
   color: #fff;
   text-align: center;
@@ -23,6 +29,7 @@ h2{
   color: #fff;
   text-align: center;
 }
+
 
 span{
   color: #fff;
