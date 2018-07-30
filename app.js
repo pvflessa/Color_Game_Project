@@ -21,6 +21,8 @@ AND THEN ASSIGN ONE COLOR FROM THE "COLORS" ARRAY TO EACH ONES BACKAGRAOUND */
 
 
 
+
+
                     // SOLUTION :
 
 /* 00) = */
@@ -95,6 +97,38 @@ for(var i = 0; i < squares.length; i++ ){
         /* 5)= */
         changeColors(clickedColor)
         selectTitle.style.backgroundColor = clickedColor
+
+
+          swal({
+  title: "You Won!",
+
+  icon: "success",
+  button: "Play Again",
+});
+
+
+var sweeteAllertButton = document.querySelector('.swal-button')
+
+sweeteAllertButton .addEventListener("click", function() {
+	//generate all new colors
+	colors = genarateRandomColors(6);
+	//pick a new random color from array
+	goalColor = pickColor();
+
+	//change colorDisplay to match picked Color
+	colorDisplay.textContent = goalColor;
+	//change colors of squares
+
+  //change colors of squares
+	for(var i = 0; i < squares.length; i++) {
+		squares[i].style.background = colors[i];
+	}
+  //reset background color to div="title"
+  title = document.querySelector('.title')
+  title.style.background = "#232323";
+
+});
+
 
      }else{
 
