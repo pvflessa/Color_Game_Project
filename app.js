@@ -17,6 +17,7 @@ AND THEN ASSIGN ONE COLOR FROM THE "COLORS" ARRAY TO EACH ONES BACKAGRAOUND */
 
 /* 5) ΘΕΛΩ ΑΝ ΒΡΩ ΤΟ ΣΩΣΤΟ ΟΛΑ ΤΑ ΤΕΤΡΑΓΩΝΑ ΝΑ ΠΑΡΟΥΝ ΑΥΤΟ ΤΟ ΧΡΩΜΑ ΚΑΘΩΣ ΚΑΙ ΤΟ background του h1 & h2 */
 
+/* 6) CREAT A BUTTON THA RESETS THE GAME  */
 
 
 
@@ -46,8 +47,7 @@ function randomColor(){
   //pick a "blue" from 0-255
   var blue = Math.floor(Math.random()*256)
 
-  return "rgb(" + red + ", " + green + ", " + blue + ")";
-
+return "rgb(" + red + ", " + green + ", " + blue + ")";
 }
 
 
@@ -118,3 +118,27 @@ function changeColors(color){
     squares[i].style.backgroundColor = color;
   }
 }
+
+/*= 6) */
+
+var resetButton = document.getElementById('reset-game')
+
+resetButton.addEventListener("click", function() {
+	//generate all new colors
+	colors = genarateRandomColors(6);
+	//pick a new random color from array
+	goalColor = pickColor();
+
+	//change colorDisplay to match picked Color
+	colorDisplay.textContent = goalColor;
+	//change colors of squares
+
+  //change colors of squares
+	for(var i = 0; i < squares.length; i++) {
+		squares[i].style.background = colors[i];
+	}
+  //reset background color to div="title"
+  title = document.querySelector('.title')
+  title.style.background = "#232323";
+
+});
