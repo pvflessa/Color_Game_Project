@@ -19,6 +19,8 @@ AND THEN ASSIGN ONE COLOR FROM THE "COLORS" ARRAY TO EACH ONES BACKAGRAOUND */
 
 /* 6) CREAT A BUTTON THA RESETS THE GAME  */
 
+/* 7) SET LEVEL BUTTONS & LEVELS  */
+
 
 
 
@@ -26,7 +28,10 @@ AND THEN ASSIGN ONE COLOR FROM THE "COLORS" ARRAY TO EACH ONES BACKAGRAOUND */
                     // SOLUTION :
 
 /* 00) = */
-var colors = genarateRandomColors(6);
+
+var numberOfSquares = 6
+
+var colors = genarateRandomColors(numberOfSquares);
 
 function genarateRandomColors(num){
   // make an array
@@ -111,7 +116,7 @@ var sweeteAllertButton = document.querySelector('.swal-button')
 
 sweeteAllertButton .addEventListener("click", function() {
 	//generate all new colors
-	colors = genarateRandomColors(6);
+	colors = genarateRandomColors(numberOfSquares);
 	//pick a new random color from array
 	goalColor = pickColor();
 
@@ -159,7 +164,7 @@ var resetButton = document.getElementById('reset-game')
 
 resetButton.addEventListener("click", function() {
 	//generate all new colors
-	colors = genarateRandomColors(6);
+	colors = genarateRandomColors(numberOfSquares);
 	//pick a new random color from array
 	goalColor = pickColor();
 
@@ -174,5 +179,67 @@ resetButton.addEventListener("click", function() {
   //reset background color to div="title"
   title = document.querySelector('.title')
   title.style.background = "#232323";
+
+});
+
+/* = 7)  */
+
+easyBtn = document.getElementById('easy');
+hardBtn = document.getElementById('hard');
+veryHardBtn = document.getElementById('veryhard');
+
+easyBtn.addEventListener('click',function(){
+  easyBtn.classList.add("active");
+  hardBtn.classList.remove("active");
+  numberOfSquares = 3
+  colors = genarateRandomColors(numberOfSquares);
+  goalColor=pickColor()
+  colorDisplay.textContent = goalColor;
+
+  //hide the 3 last squares
+
+  for(var i = 0; i < squares.length; i++) {
+		if(colors[i]) {
+			squares[i].style.background = colors[i];
+		} else {
+			squares[i].style.display = "none";
+		}
+	}
+
+
+});
+
+hardBtn.addEventListener('click',function(){
+  hardBtn.classList.add("active");
+  easyBtn.classList.remove("active");
+  numberOfSquares = 6
+  colors = genarateRandomColors(numberOfSquares);
+  goalColor=pickColor()
+  colorDisplay.textContent = goalColor;
+
+  //hide the 3 last squares
+
+  for(var i = 0; i < squares.length; i++) {
+      squares[i].style.background = colors[i];
+      squares[i].style.display ="block"
+  }
+
+});
+
+
+VeryhardBtn.addEventListener('click',function(){
+  hardBtn.classList.add("active");
+  easyBtn.classList.remove("active");
+  numberOfSquares = 9
+  colors = genarateRandomColors(numberOfSquares);
+  goalColor=pickColor()
+  colorDisplay.textContent = goalColor;
+
+  //hide the 3 last squares
+
+  for(var i = 0; i < squares.length; i++) {
+      squares[i].style.background = colors[i];
+      squares[i].style.display ="block"
+  }
 
 });
