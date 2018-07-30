@@ -17,7 +17,7 @@ AND THEN ASSIGN ONE COLOR FROM THE "COLORS" ARRAY TO EACH ONES BACKAGRAOUND */
 
 /* 5) ΘΕΛΩ ΑΝ ΒΡΩ ΤΟ ΣΩΣΤΟ ΟΛΑ ΤΑ ΤΕΤΡΑΓΩΝΑ ΝΑ ΠΑΡΟΥΝ ΑΥΤΟ ΤΟ ΧΡΩΜΑ ΚΑΘΩΣ ΚΑΙ ΤΟ background του h1 & h2 */
 
-/* 6) CREAT A BUTTON THA RESETS THE GAME  */
+/* 6) CREATE A BUTTON THA RESETS THE GAME  */
 
 /* 7) SET LEVEL BUTTONS & LEVELS  */
 
@@ -175,6 +175,10 @@ resetButton.addEventListener("click", function() {
   //change colors of squares
 	for(var i = 0; i < squares.length; i++) {
 		squares[i].style.background = colors[i];
+
+  //change messageDisplay
+
+   messageDisplay.textContent = ''
 	}
   //reset background color to div="title"
   title = document.querySelector('.title')
@@ -186,7 +190,7 @@ resetButton.addEventListener("click", function() {
 
 easyBtn = document.getElementById('easy');
 hardBtn = document.getElementById('hard');
-veryHardBtn = document.getElementById('veryhard');
+
 
 easyBtn.addEventListener('click',function(){
   easyBtn.classList.add("active");
@@ -217,25 +221,6 @@ hardBtn.addEventListener('click',function(){
   goalColor=pickColor()
   colorDisplay.textContent = goalColor;
 
-  //hide the 3 last squares
-
-  for(var i = 0; i < squares.length; i++) {
-      squares[i].style.background = colors[i];
-      squares[i].style.display ="block"
-  }
-
-});
-
-
-VeryhardBtn.addEventListener('click',function(){
-  hardBtn.classList.add("active");
-  easyBtn.classList.remove("active");
-  numberOfSquares = 9
-  colors = genarateRandomColors(numberOfSquares);
-  goalColor=pickColor()
-  colorDisplay.textContent = goalColor;
-
-  //hide the 3 last squares
 
   for(var i = 0; i < squares.length; i++) {
       squares[i].style.background = colors[i];
